@@ -22,9 +22,9 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 100px;
 }
 
 .cinematic-title {
@@ -36,7 +36,9 @@
   text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
 }
 
-.gallery-wrapper > div {
-  width: 100%;
-  max-width: 1200px;
+.gallery-full-container {
+  width: 100vw;
+  height: 70vh;
+  position: relative;
+  margin-top: 20px;
 }

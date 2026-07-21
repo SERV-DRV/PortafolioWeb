@@ -8,7 +8,7 @@ import './ProjectsPage.css';
 export default function ProjectsPage() {
   const galleryItems = projects.map(p => ({
     image: p.images[0],
-    text: p.title
+    text: p.name
   }));
 
   return (
@@ -30,7 +30,7 @@ export default function ProjectsPage() {
       
       <div className="gallery-wrapper">
         <h1 className="cinematic-title">Mis Proyectos</h1>
-        <div style={{ height: '600px', position: 'relative' }}>
+        <div className="gallery-full-container">
           <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} items={galleryItems} />
         </div>
       </div>

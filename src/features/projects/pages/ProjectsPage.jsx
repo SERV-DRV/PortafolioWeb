@@ -7,7 +7,7 @@ import './ProjectsPage.css';
 
 export default function ProjectsPage() {
   const galleryItems = projects.map(p => ({
-    image: p.images[0],
+    image: p.logo || p.images[0],
     text: p.name
   }));
 

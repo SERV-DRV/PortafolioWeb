@@ -49,6 +49,7 @@ export const projects = [
         link: "https://github.com/SERV-DRV/GestorDeComentarios",
         demoLink: "https://serv-drv.github.io/Agenda-Web/",
         icon: "address-book",
+        logo: "/assets/icons/agenda.png",
         images: [
             "/assets/projects/agenda/agenda_1.png",
             "/assets/projects/agenda/agenda_2.png",
@@ -66,6 +67,7 @@ export const projects = [
         year: "2025",
         link: "https://github.com/SERV-DRV/WorkAs--Final-",
         icon: "briefcase",
+        logo: "/assets/icons/workas.png",
         images: [
             "/assets/projects/WorkAss/workass_1.jpeg"
         ]
@@ -79,6 +81,7 @@ export const projects = [
         year: "2026",
         link: "https://github.com/IN6CM-GestorRestaurante",
         icon: "utensils",
+        logo: "/assets/icons/restaurant.png",
         images: [
             "/assets/projects/GestorRestaurante/gestor_1.jpeg",
             "/assets/projects/GestorRestaurante/gestor_2.jpeg",
@@ -95,6 +98,7 @@ export const projects = [
         year: "2025",
         link: "https://github.com/SERV-DRV/PaginaPrueba_Deporte_Mania",
         icon: "running",
+        logo: "/assets/icons/sports.png",
         images: [
             "/assets/projects/DeporteMania/deportemania_1.png",
             "/assets/projects/DeporteMania/deportemania_2.png",
@@ -112,6 +116,7 @@ export const projects = [
         year: "2025",
         link: "https://github.com/SERV-DRV/Kinal-Familiar",
         icon: "home",
+        logo: "/assets/icons/family.png",
         images: [
             "/assets/projects/KinalFamiliar/kinal_1.jpeg",
             "/assets/projects/KinalFamiliar/kinal_2.jpeg",

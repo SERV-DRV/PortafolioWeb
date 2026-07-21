@@ -1,48 +1,113 @@
-.about-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 800px;
+.about-immersive-page {
+  position: relative;
+  min-height: 100vh;
+  background-color: #000;
+  overflow: hidden;
 }
 
-.about-header {
-  margin-bottom: 2rem;
-}
-
-.profile-container {
+.about-glass-content {
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: center;
-  margin-bottom: 3rem;
-  width: 100%;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 80px;
 }
 
-.about-details {
-  padding: 30px;
-  border-radius: 16px;
+.fluid-glass-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.8;
+  pointer-events: auto;
 }
 
-.about-details h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+.about-details-overlay {
+  width: 100%;
+  max-width: 800px;
+  pointer-events: none; /* Let the canvas be interactive underneath */
+}
+
+.glass-panel-content {
+  background: rgba(10, 20, 30, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  pointer-events: auto; /* Re-enable for the content box */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.about-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #38bdf8;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+.glass-panel-content h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.about-title {
   color: #38bdf8;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.about-bio-box {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
 }
 
 .bio-text {
   font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--text-main);
-  margin-bottom: 2rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.edu-section {
+  margin-bottom: 30px;
+  color: #cbd5e1;
 }
 
 .edu-section h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
   color: #7dd3fc;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
 }
 
 .links-section {
-  margin-top: 2rem;
   display: flex;
+  gap: 15px;
   justify-content: center;
+}
+
+.btn-secondary-solid {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary-solid:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }

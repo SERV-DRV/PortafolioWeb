@@ -1,40 +1,57 @@
 import React from 'react';
 import PillNav from '../../../shared/components/layout/PillNav';
-import ProfileCard from '../../../shared/components/ui/ProfileCard';
+import LetterGlitch from '../../../shared/components/ui/LetterGlitch';
+import FluidGlass from '../../../shared/components/ui/FluidGlass';
 import { personalInfo } from '../../../shared/data/portfolioData';
 import './AboutPage.css';
 
 export default function AboutPage() {
   return (
-    <div className="page-container">
+    <div className="page-container about-immersive-page">
+      <div className="background-layer">
+        <LetterGlitch 
+          glitchSpeed={50}
+          centerVignette={true}
+          outerVignette={false}
+          smooth={true}
+        />
+      </div>
+      
       <PillNav />
-      <main className="page-content about-content">
-        <div className="about-header">
-          <h1 className="page-title">Sobre Mí</h1>
+      
+      <main className="page-content about-glass-content">
+        <div className="fluid-glass-wrapper">
+          {/* Fluid Glass provides a 3D Canvas, we layer the HTML content over it */}
+          <FluidGlass text="Sobre Mí" mode="lens" />
         </div>
-        <div className="profile-container">
-          <ProfileCard
-            avatarUrl="https://avatars.githubusercontent.com/u/129759868?v=4" // GitHub Avatar fallback
-            name={personalInfo.name}
-            title={personalInfo.title}
-            handle={personalInfo.alias}
-            status="Estudiante"
-            contactText="Ver GitHub"
-            onContactClick={() => window.open(personalInfo.links.github, '_blank')}
-            innerGradient="linear-gradient(145deg,#0284c78c 0%,#7dd3fc44 100%)"
-            behindGlowColor="rgba(2, 132, 199, 0.6)"
-            miniAvatarUrl="https://avatars.githubusercontent.com/u/129759868?v=4"
-          />
-        </div>
-        <div className="about-details glass-panel">
-          <h2>Biografía</h2>
-          <p className="bio-text">{personalInfo.bio}</p>
-          <div className="edu-section">
-            <h3>Educación</h3>
-            <p><strong>{personalInfo.education}</strong> - {personalInfo.institution}</p>
-          </div>
-          <div className="links-section">
-            <a href={personalInfo.links.email} className="btn-primary-solid">Contactar por Email</a>
+
+        <div className="about-details-overlay">
+          <div className="glass-panel-content">
+            <img 
+              src="https://avatars.githubusercontent.com/u/129759868?v=4" 
+              alt="Avatar" 
+              className="about-avatar"
+            />
+            <h2>{personalInfo.name}</h2>
+            <h3 className="about-title">{personalInfo.title}</h3>
+            
+            <div className="about-bio-box">
+              <p className="bio-text">{personalInfo.bio}</p>
+            </div>
+
+            <div className="edu-section">
+              <h3>Educación</h3>
+              <p><strong>{personalInfo.education}</strong> - {personalInfo.institution}</p>
+            </div>
+            
+            <div className="links-section">
+              <a href={personalInfo.links.github} target="_blank" rel="noreferrer" className="btn-primary-solid">
+                Ver GitHub
+              </a>
+              <a href={personalInfo.links.email} className="btn-secondary-solid">
+                Contactar por Email
+              </a>
+            </div>
           </div>
         </div>
       </main>

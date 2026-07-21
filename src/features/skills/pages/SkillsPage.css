@@ -1,127 +1,103 @@
-.skills-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+.immersive-page {
+  position: relative;
+  min-height: 100vh;
+  background-color: #030712;
 }
 
-@media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.skills-column {
-  padding: 30px;
-  border-radius: 16px;
+.skills-immersive-content {
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
 }
 
-.skills-column h2 {
-  font-size: 1.5rem;
+.orbit-section {
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orbit-icon-wrapper {
+  background: rgba(10, 20, 30, 0.8);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  border-radius: 50%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.orbit-icon-wrapper:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.8);
+}
+
+.center-core {
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 40px rgba(2, 132, 199, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.center-core h3 {
+  color: white;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.soft-skills-glass {
+  background: rgba(10, 20, 30, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.soft-skills-glass h2 {
   color: #38bdf8;
   margin-bottom: 20px;
-  text-align: center;
+  font-size: 2rem;
 }
 
-/* Scroll Stack Specific */
-.scroll-stack-wrapper {
-  height: 500px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.my-scroll-stack {
-  height: 100%;
-}
-
-.skill-stack-item {
-  width: 100%;
-  background: rgba(10, 20, 40, 0.9);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+.soft-skills-tags {
   display: flex;
-  align-items: center;
-  backdrop-filter: blur(10px);
-}
-
-.skill-card-content {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 20px;
-}
-
-.skill-icon {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 12px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
   justify-content: center;
 }
 
-.skill-info {
-  flex-grow: 1;
-}
-
-.skill-info h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.2rem;
+.soft-skill-tag {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 10px 20px;
+  border-radius: 30px;
   color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-.skill-bar-container {
-  width: 100%;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  margin-bottom: 4px;
-  overflow: hidden;
-}
-
-.skill-bar-fill {
-  height: 100%;
-  border-radius: 4px;
-  transition: width 1s ease-out;
-}
-
-.skill-percent {
-  font-size: 0.8rem;
-  color: #7dd3fc;
-  font-weight: bold;
-}
-
-/* Soft Skills List */
-.list-wrapper {
-  height: 400px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.skills-animated-list {
-  height: 100%;
-}
-
-.skills-animated-list .item {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 16px;
-  border-radius: 8px;
-  transition: background 0.2s;
-}
-
-.skills-animated-list .item:hover {
-  background: rgba(2, 132, 199, 0.2);
-  border-color: #38bdf8;
-}
-
-.skills-animated-list .item-text {
-  color: var(--text-main);
-  font-size: 0.95rem;
-  margin: 0;
+.soft-skill-tag:hover {
+  background: rgba(56, 189, 248, 0.3);
+  transform: translateY(-2px);
 }

@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PillNav from '../../../shared/components/layout/PillNav';
 import Lightfall from '../../../shared/components/ui/Lightfall';
-import ProfileCard from '../../../shared/components/ui/ProfileCard';
 import { personalInfo } from '../../../shared/data/portfolioData';
 import './HomePage.css';
 
@@ -21,6 +20,7 @@ export default function HomePage() {
       <PillNav />
       
       <div className="scrollable-content">
+        {/* HERO SECTION */}
         <section className="hero-section">
           <main className="hero-content">
             <motion.div 
@@ -65,48 +65,69 @@ export default function HomePage() {
           </main>
         </section>
 
-        <section id="about" className="about-section">
-          <div className="about-content-wrapper">
+        {/* EDITORIAL ABOUT SECTION */}
+        <section id="about" className="about-editorial-section">
+          <div className="editorial-wrapper">
+            
             <motion.div 
-              className="profile-side"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              className="editorial-image-container"
+              initial={{ opacity: 0, filter: 'blur(10px)' }}
+              whileInView={{ opacity: 1, filter: 'blur(0px)' }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1 }}
             >
-              <ProfileCard
-                avatarUrl="https://avatars.githubusercontent.com/u/129759868?v=4"
-                name={personalInfo.name}
-                title={personalInfo.title}
-                handle={personalInfo.alias}
-                status="Estudiante"
-                contactText="Ver GitHub"
-                onContactClick={() => window.open(personalInfo.links.github, '_blank')}
-                innerGradient="linear-gradient(145deg,#0284c78c 0%,#7dd3fc44 100%)"
-                behindGlowColor="rgba(2, 132, 199, 0.6)"
-                miniAvatarUrl="https://avatars.githubusercontent.com/u/129759868?v=4"
-              />
+              <div className="image-geometry-crop">
+                <img 
+                  src="https://avatars.githubusercontent.com/u/129759868?v=4" 
+                  alt={personalInfo.name} 
+                  className="editorial-img"
+                />
+                <div className="image-overlay-gradient"></div>
+              </div>
             </motion.div>
 
             <motion.div 
-              className="bio-side glass-panel"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              className="editorial-content"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <h2>Sobre Mí</h2>
-              <p className="bio-text">{personalInfo.bio}</p>
+              <h2 className="editorial-headline">
+                Transformando ideas complejas en experiencias <span className="text-glow">digitales impecables</span>.
+              </h2>
               
-              <div className="edu-section mt-6">
-                <h3>Educación</h3>
-                <p><strong>{personalInfo.education}</strong> - {personalInfo.institution}</p>
+              <div className="editorial-divider"></div>
+              
+              <div className="editorial-body">
+                <p>
+                  Soy un desarrollador apasionado por crear software que no solo funcione, 
+                  sino que deslumbre. Especializado en arquitectura <strong>Full Stack</strong>, 
+                  combino un profundo conocimiento del código con una atención obsesiva por el detalle y la interfaz de usuario.
+                </p>
+                <p>
+                  {personalInfo.bio}
+                </p>
               </div>
 
-              <div className="links-section mt-8">
-                <a href={personalInfo.links.email} className="btn-primary-solid">Contactar por Email</a>
+              <div className="editorial-meta">
+                <div className="meta-block">
+                  <span className="meta-label">Enfoque</span>
+                  <span className="meta-value">Innovación & Rendimiento</span>
+                </div>
+                <div className="meta-block">
+                  <span className="meta-label">Educación</span>
+                  <span className="meta-value">{personalInfo.education}</span>
+                </div>
+              </div>
+
+              <div className="editorial-actions">
+                <a href={personalInfo.links.github} target="_blank" rel="noreferrer" className="btn-outline">
+                  Explorar Repositorios
+                </a>
               </div>
             </motion.div>
+            
           </div>
         </section>
       </div>

@@ -4,121 +4,203 @@
   background-color: #030712;
 }
 
-.skills-immersive-content {
+.skills-dashboard-content {
   position: relative;
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 100px;
+  padding: 100px 20px 40px;
+  width: 100%;
 }
 
-.skills-bento-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+.dashboard-wrapper {
+  display: flex;
+  gap: 40px;
   width: 100%;
-  max-width: 1000px;
-  padding: 0 20px;
+  max-width: 1100px;
   margin-top: 40px;
 }
 
-.skill-bento-card {
+/* Lado Izquierdo: Selector */
+.skills-selector {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 24px;
-  border-radius: 20px;
-  background: rgba(10, 20, 30, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  gap: 10px;
+  width: 300px;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
-.skill-bento-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(56, 189, 248, 0.3);
+.skills-selector::-webkit-scrollbar {
+  width: 6px;
+}
+.skills-selector::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 
-.skill-card-top {
+.skill-select-btn {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 20px;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
 }
 
-.skill-icon-box {
-  width: 60px;
-  height: 60px;
+.skill-select-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(5px);
+}
+
+.skill-btn-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.skill-percentage {
-  font-size: 1.5rem;
-  font-weight: 700;
+.skill-btn-name {
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
-.skill-card-bottom h3 {
-  color: white;
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-  font-weight: 500;
-}
-
-.skill-bar-bg {
-  width: 100%;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.skill-bar-fill {
-  height: 100%;
-  border-radius: 999px;
-}
-
-/* Soft Skills Glass */
-.soft-skills-glass {
+/* Lado Derecho: Visualizador */
+.skills-visualizer {
+  flex: 1;
   background: rgba(10, 20, 30, 0.6);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 30px;
   border-radius: 24px;
-  width: 90%;
-  max-width: 1000px;
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.soft-skills-glass h2 {
-  color: #38bdf8;
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
-
-.soft-skills-tags {
+  padding: 40px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+  align-items: center;
   justify-content: center;
+  min-height: 500px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-.soft-skill-tag {
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  padding: 10px 20px;
-  border-radius: 30px;
-  color: white;
-  font-weight: 500;
-  transition: all 0.3s ease;
+.visualizer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
-.soft-skill-tag:hover {
-  background: rgba(56, 189, 248, 0.3);
-  transform: translateY(-2px);
+.circular-progress-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 40px;
+}
+
+.circular-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.circular-percentage {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.visualizer-details h2 {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.skill-desc {
+  font-size: 1.15rem;
+  color: #e2e8f0;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Soft Skills */
+.soft-skills-dashboard {
+  background: rgba(10, 20, 30, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.soft-skills-dashboard h2 {
+  color: #38bdf8;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.soft-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.soft-skill-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 16px;
+  transition: background 0.3s ease;
+}
+
+.soft-skill-item:hover {
+  background: rgba(56, 189, 248, 0.05);
+}
+
+.soft-skill-item h3 {
+  color: #f8fafc;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.soft-skill-item p {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.mt-8 { margin-top: 2rem; }
+
+@media (max-width: 900px) {
+  .dashboard-wrapper {
+    flex-direction: column;
+  }
+  
+  .skills-selector {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+  }
+
+  .skill-select-btn {
+    flex-shrink: 0;
+  }
 }

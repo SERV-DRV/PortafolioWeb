@@ -1,0 +1,48 @@
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+}
+
+.about-header {
+  margin-bottom: 2rem;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.about-details {
+  padding: 30px;
+  border-radius: 16px;
+  width: 100%;
+}
+
+.about-details h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #38bdf8;
+}
+
+.bio-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  margin-bottom: 2rem;
+}
+
+.edu-section h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #7dd3fc;
+}
+
+.links-section {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}

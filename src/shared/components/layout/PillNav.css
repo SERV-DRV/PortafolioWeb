@@ -18,8 +18,8 @@
   height: 60px;
   border-radius: 999px;
   padding: 0 8px 0 24px;
-  /* Deep purple gradient like React Bits */
-  background: linear-gradient(90deg, rgba(30,10,60,0.8) 0%, rgba(50,20,120,0.8) 50%, rgba(30,10,60,0.8) 100%);
+  /* Deep blue/cyan gradient */
+  background: linear-gradient(90deg, rgba(10,20,50,0.8) 0%, rgba(15,40,90,0.8) 50%, rgba(10,20,50,0.8) 100%);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 

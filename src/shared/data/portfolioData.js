@@ -50,11 +50,11 @@ export const projects = [
         demoLink: "https://serv-drv.github.io/Agenda-Web/",
         icon: "address-book",
         images: [
-            require("../../assets/projects/agenda/agenda_1.png"),
-            require("../../assets/projects/agenda/agenda_2.png"),
-            require("../../assets/projects/agenda/agenda_3.png"),
-            require("../../assets/projects/agenda/agenda_4.png"),
-            require("../../assets/projects/agenda/agenda_5.png")
+            "/assets/projects/agenda/agenda_1.png",
+            "/assets/projects/agenda/agenda_2.png",
+            "/assets/projects/agenda/agenda_3.png",
+            "/assets/projects/agenda/agenda_4.png",
+            "/assets/projects/agenda/agenda_5.png"
         ]
     },
     { 
@@ -67,7 +67,7 @@ export const projects = [
         link: "https://github.com/SERV-DRV/WorkAs--Final-",
         icon: "briefcase",
         images: [
-            require("../../assets/projects/WorkAss/workass_1.jpeg")
+            "/assets/projects/WorkAss/workass_1.jpeg"
         ]
     },
     { 
@@ -80,10 +80,10 @@ export const projects = [
         link: "https://github.com/IN6CM-GestorRestaurante",
         icon: "utensils",
         images: [
-            require("../../assets/projects/GestorRestaurante/gestor_1.jpeg"),
-            require("../../assets/projects/GestorRestaurante/gestor_2.jpeg"),
-            require("../../assets/projects/GestorRestaurante/gestor_3.jpeg"),
-            require("../../assets/projects/GestorRestaurante/gestor_4.jpeg")
+            "/assets/projects/GestorRestaurante/gestor_1.jpeg",
+            "/assets/projects/GestorRestaurante/gestor_2.jpeg",
+            "/assets/projects/GestorRestaurante/gestor_3.jpeg",
+            "/assets/projects/GestorRestaurante/gestor_4.jpeg"
         ]
     },
     { 
@@ -96,11 +96,11 @@ export const projects = [
         link: "https://github.com/SERV-DRV/PaginaPrueba_Deporte_Mania",
         icon: "running",
         images: [
-            require("../../assets/projects/DeporteMania/deportemania_1.png"),
-            require("../../assets/projects/DeporteMania/deportemania_2.png"),
-            require("../../assets/projects/DeporteMania/deportemania_3.png"),
-            require("../../assets/projects/DeporteMania/deportemania_4.png"),
-            require("../../assets/projects/DeporteMania/deportemania_5.png")
+            "/assets/projects/DeporteMania/deportemania_1.png",
+            "/assets/projects/DeporteMania/deportemania_2.png",
+            "/assets/projects/DeporteMania/deportemania_3.png",
+            "/assets/projects/DeporteMania/deportemania_4.png",
+            "/assets/projects/DeporteMania/deportemania_5.png"
         ]
     },
     { 
@@ -113,14 +113,14 @@ export const projects = [
         link: "https://github.com/SERV-DRV/Kinal-Familiar",
         icon: "home",
         images: [
-            require("../../assets/projects/KinalFamiliar/kinal_1.jpeg"),
-            require("../../assets/projects/KinalFamiliar/kinal_2.jpeg"),
-            require("../../assets/projects/KinalFamiliar/kinal_3.jpeg"),
-            require("../../assets/projects/KinalFamiliar/kinal_4.jpeg"),
-            require("../../assets/projects/KinalFamiliar/kinal_5.jpeg"),
-            require("../../assets/projects/KinalFamiliar/kinal_6.jpeg"),
-            require("../../assets/projects/KinalFamiliar/kinal_7.jpeg")
+            "/assets/projects/KinalFamiliar/kinal_1.jpeg",
+            "/assets/projects/KinalFamiliar/kinal_2.jpeg",
+            "/assets/projects/KinalFamiliar/kinal_3.jpeg",
+            "/assets/projects/KinalFamiliar/kinal_4.jpeg",
+            "/assets/projects/KinalFamiliar/kinal_5.jpeg",
+            "/assets/projects/KinalFamiliar/kinal_6.jpeg",
+            "/assets/projects/KinalFamiliar/kinal_7.jpeg"
         ],
-        video: require("../../assets/projects/KinalFamiliar/kinal_video.mp4")
+        video: "/assets/projects/KinalFamiliar/kinal_video.mp4"
     },
 ];

@@ -13,55 +13,76 @@
   padding-top: 100px;
 }
 
-.orbit-section {
+.skills-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
   width: 100%;
-  max-width: 800px;
-  height: 500px;
-  margin: 40px 0;
+  max-width: 1000px;
+  padding: 0 20px;
+  margin-top: 40px;
+}
+
+.skill-bento-card {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(10, 20, 30, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.orbit-icon-wrapper {
-  background: rgba(10, 20, 30, 0.8);
-  border: 1px solid rgba(56, 189, 248, 0.5);
-  border-radius: 50%;
-  padding: 15px;
+.skill-bento-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.skill-card-top {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-  backdrop-filter: blur(5px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
 
-.orbit-icon-wrapper:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.8);
-}
-
-.center-core {
-  background: linear-gradient(135deg, #0284c7, #38bdf8);
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
+.skill-icon-box {
+  width: 60px;
+  height: 60px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  box-shadow: 0 0 40px rgba(2, 132, 199, 0.6);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  justify-content: center;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.center-core h3 {
+.skill-percentage {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.skill-card-bottom h3 {
   color: white;
-  margin: 0;
   font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  margin-bottom: 12px;
+  font-weight: 500;
 }
 
+.skill-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+/* Soft Skills Glass */
 .soft-skills-glass {
   background: rgba(10, 20, 30, 0.6);
   backdrop-filter: blur(12px);
@@ -69,7 +90,7 @@
   padding: 30px;
   border-radius: 24px;
   width: 90%;
-  max-width: 800px;
+  max-width: 1000px;
   text-align: center;
   margin-bottom: 50px;
 }

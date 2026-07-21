@@ -2,7 +2,7 @@
 // https://x.com/dominikkoch
 
 import { useMemo, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'motion/react';
+import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import './OrbitImages.css';
 
 function generateEllipsePath(cx, cy, rx, ry) {

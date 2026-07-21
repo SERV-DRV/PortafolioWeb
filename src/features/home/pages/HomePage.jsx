@@ -2,14 +2,20 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PillNav from '../../../shared/components/layout/PillNav';
-import BackgroundRain from '../../../shared/components/ui/BackgroundRain';
+import Lightfall from '../../../shared/components/ui/Lightfall';
 import { personalInfo } from '../../../shared/data/portfolioData';
 import './HomePage.css';
 
 export default function HomePage() {
   return (
     <div className="home-container">
-      <BackgroundRain />
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+        <Lightfall 
+          backgroundColor="#000000"
+          colors={['#4F46E5', '#818CF8', '#A5B4FC']}
+          density={0.7}
+        />
+      </div>
       <PillNav />
       
       <main className="hero-content">

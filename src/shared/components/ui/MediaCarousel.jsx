@@ -44,7 +44,8 @@ export default function MediaCarousel({ media = [] }) {
                 src={currentMedia.src} 
                 alt={`Media ${currentIndex + 1}`} 
                 className="carousel-media"
-                loading="lazy"
+                loading={currentIndex === 0 ? "eager" : "lazy"}
+                fetchPriority={currentIndex === 0 ? "high" : "auto"}
                 decoding="async"
               />
             )}

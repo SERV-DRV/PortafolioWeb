@@ -69,12 +69,12 @@ export default function ProjectDetailsPage() {
           </div>
 
           <div className="details-info-section">
-            <h3 className="section-title">Sobre el Proyecto</h3>
+            <h2 className="section-title">Sobre el Proyecto</h2>
             <p className="details-description">
               {project.fullDescription || project.description}
             </p>
 
-            <h3 className="section-title mt-4">Tecnologías Utilizadas</h3>
+            <h2 className="section-title mt-4">Tecnologías Utilizadas</h2>
             <div className="details-tech-stack">
               {project.technologies.map((tech, i) => (
                 <span key={i} className="details-tech-badge">{tech}</span>

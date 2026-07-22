@@ -35,7 +35,8 @@ export default function MediaCarousel({ media = [] }) {
               <video 
                 src={currentMedia.src} 
                 controls
-                preload="metadata"
+                preload="none"
+                poster={currentMedia.poster}
                 className="carousel-media"
               />
             ) : (

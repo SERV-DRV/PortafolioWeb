@@ -62,7 +62,7 @@ export default function ProjectDetailsPage() {
           <div className="details-media-section">
             <MediaCarousel 
               media={[
-                ...(project.video ? [{ type: 'video', src: project.video }] : []),
+                ...(project.video ? [{ type: 'video', src: project.video, poster: project.images?.[0] }] : []),
                 ...(project.images ? project.images.map(img => ({ type: 'image', src: img })) : [])
               ]} 
             />

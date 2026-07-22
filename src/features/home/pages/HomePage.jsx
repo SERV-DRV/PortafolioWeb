@@ -22,12 +22,12 @@ export default function HomePage() {
   const [dpr, setDpr] = useState(1);
 
   React.useEffect(() => {
-    // Aumentamos a 1 (antes 0.5) para que no se vea tan pixeleado, 
-    // sigue siendo mucho más ligero que el 3 nativo de los celulares.
+    // Al usar el filtro blur en CSS, podemos bajar la resolución al mínimo
+    // para recuperar todo el rendimiento sin que se vean los píxeles.
     if (window.innerWidth < 768) {
-      setDpr(0.9);
+      setDpr(0.3);
     } else {
-      setDpr(Math.min(window.devicePixelRatio || 1, 1.5)); 
+      setDpr(0.7); 
     }
   }, []);
 
@@ -40,6 +40,7 @@ export default function HomePage() {
             colors={LIGHTFALL_COLORS}
             density={0.7}
             dpr={dpr}
+            className="blurred-lightfall"
           />
         </Suspense>
       </div>

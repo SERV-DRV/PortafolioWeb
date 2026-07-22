@@ -38,7 +38,159 @@
 
 .gallery-full-container {
   width: 100vw;
-  height: 70vh;
+  height: 60vh;
   position: relative;
   margin-top: 20px;
+}
+
+/* Floating Action Button */
+.active-project-action {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.view-project-btn {
+  background: rgba(56, 189, 248, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 15px 40px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  transition: all 0.3s ease;
+}
+
+.view-project-btn:hover {
+  background: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+}
+
+/* Modal de Detalles */
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(15px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.project-modal-content {
+  background: rgba(10, 20, 30, 0.8);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 700px;
+  padding: 50px;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(56, 189, 248, 0.1);
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-modal-btn:hover {
+  color: #f8fafc;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.modal-header h2 {
+  font-size: 2.5rem;
+  color: #38bdf8;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.project-year {
+  color: #64748b;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.modal-full-desc {
+  color: #e2e8f0;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.modal-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.tech-badge {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  flex: 1;
+}
+
+.primary-btn {
+  background: #38bdf8;
+  color: #030712;
+}
+
+.primary-btn:hover {
+  background: #0ea5e9;
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }

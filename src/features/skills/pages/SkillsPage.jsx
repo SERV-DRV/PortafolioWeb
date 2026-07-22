@@ -192,23 +192,33 @@ export default function SkillsPage() {
             <h2 className="cinematic-title text-3xl">Habilidades Blandas</h2>
             <p className="page-subtitle text-slate-400">Competencias interpersonales y cognitivas</p>
           </div>
-          <div className="soft-skills-grid">
-            {softSkills.map((s, idx) => (
-              <motion.div 
-                key={idx} 
-                className="soft-skill-card glass-panel"
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <div className="soft-skill-icon-wrapper">
-                  {getSoftIcon(s.icon, "#38bdf8", 40)}
+          <div className="marquee-container">
+            <div className="marquee-content">
+              {/* Primer set de tarjetas */}
+              {softSkills.map((s, idx) => (
+                <div key={`set1-${idx}`} className="soft-skill-card glass-panel">
+                  <div className="soft-skill-icon-wrapper">
+                    {getSoftIcon(s.icon, "#38bdf8", 40)}
+                  </div>
+                  <div className="soft-skill-content">
+                    <h3 className="soft-skill-title text-white">{s.name}</h3>
+                    <p className="text-slate-400 text-sm mt-2">{s.description}</p>
+                  </div>
                 </div>
-                <div className="soft-skill-content">
-                  <h3 className="soft-skill-title text-white">{s.name}</h3>
-                  <p className="text-slate-400 text-sm mt-2">{s.description}</p>
+              ))}
+              {/* Segundo set duplicado para el bucle infinito */}
+              {softSkills.map((s, idx) => (
+                <div key={`set2-${idx}`} className="soft-skill-card glass-panel">
+                  <div className="soft-skill-icon-wrapper">
+                    {getSoftIcon(s.icon, "#38bdf8", 40)}
+                  </div>
+                  <div className="soft-skill-content">
+                    <h3 className="soft-skill-title text-white">{s.name}</h3>
+                    <p className="text-slate-400 text-sm mt-2">{s.description}</p>
+                  </div>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </main>

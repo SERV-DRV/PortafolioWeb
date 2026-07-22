@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PillNav from '../../../shared/components/layout/PillNav';
@@ -156,7 +156,11 @@ export default function HomePage() {
             >
               Mis Certificaciones
             </motion.h2>
-            <p className="cert-subtitle">Reconocimientos y validaciones de mis habilidades técnicas.</p>
+            <p className="cert-subtitle">
+              A lo largo de mi trayectoria he obtenido reconocimientos y validaciones 
+              que respaldan mis habilidades técnicas y mi compromiso con el aprendizaje 
+              continuo en el mundo del desarrollo de software.
+            </p>
 
             <div className="cert-grid">
               {certifications.map((cert) => (

@@ -28,6 +28,17 @@ export default function PillNav() {
     }
   };
 
+  const handleScrollToCerts = (e) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const certSection = document.getElementById('certifications');
+      if (certSection) {
+        certSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      setIsOpen(false);
+    }
+  };
+
   return (
     <>
       <nav className="pill-nav-container">
@@ -43,6 +54,7 @@ export default function PillNav() {
             <Link to="/projects">Proyectos</Link>
             <Link to="/skills">Habilidades</Link>
             <Link to="/#about" onClick={handleScrollToAbout}>Sobre Mí</Link>
+            <Link to="/#certifications" onClick={handleScrollToCerts}>Certificados</Link>
           </div>
 
           <div className="nav-socials">
@@ -88,6 +100,7 @@ export default function PillNav() {
           <Link to="/projects" onClick={() => setIsOpen(false)}>Proyectos</Link>
           <Link to="/skills" onClick={() => setIsOpen(false)}>Habilidades</Link>
           <Link to="/#about" onClick={(e) => { handleScrollToAbout(e); setIsOpen(false); }}>Sobre Mí</Link>
+          <Link to="/#certifications" onClick={(e) => { handleScrollToCerts(e); setIsOpen(false); }}>Certificados</Link>
         </div>
 
         <div className="drawer-socials">

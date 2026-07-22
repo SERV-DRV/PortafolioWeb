@@ -22,9 +22,10 @@ export default function HomePage() {
   const [dpr, setDpr] = useState(1);
 
   React.useEffect(() => {
-    // Set a lower DPR on mobile to drastically improve performance
+    // Aumentamos a 1 (antes 0.5) para que no se vea tan pixeleado, 
+    // sigue siendo mucho más ligero que el 3 nativo de los celulares.
     if (window.innerWidth < 768) {
-      setDpr(0.5);
+      setDpr(0.9);
     } else {
       setDpr(Math.min(window.devicePixelRatio || 1, 1.5)); 
     }

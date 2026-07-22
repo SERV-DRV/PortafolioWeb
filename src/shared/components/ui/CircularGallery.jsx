@@ -278,7 +278,7 @@ class Media {
           vec4 color = texture2D(tMap, uv);
           
           if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
-            color = vec4(0.0);
+            color = vec4(1.0, 1.0, 1.0, 1.0);
           }
           
           float d = roundedBoxSDF(vUv - 0.5, vec2(0.5 - uBorderRadius), uBorderRadius);

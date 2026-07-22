@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PillNav from '../../../shared/components/layout/PillNav';
-import Lightfall from '../../../shared/components/ui/Lightfall';
-import LetterGlitch from '../../../shared/components/ui/LetterGlitch';
 import MediaCarousel from '../../../shared/components/ui/MediaCarousel';
+
+const Lightfall = lazy(() => import('../../../shared/components/ui/Lightfall'));
+const LetterGlitch = lazy(() => import('../../../shared/components/ui/LetterGlitch'));
 import { personalInfo } from '../../../shared/data/portfolioData';
 import { FaTimes } from 'react-icons/fa';
 import './HomePage.css';
@@ -32,12 +33,14 @@ export default function HomePage() {
   return (
     <div className="home-container">
       <div className="fixed-background">
-        <Lightfall 
-          backgroundColor="#000000"
-          colors={LIGHTFALL_COLORS}
-          density={0.7}
-          dpr={dpr}
-        />
+        <Suspense fallback={<div style={{ backgroundColor: '#000000', width: '100%', height: '100%' }}></div>}>
+          <Lightfall 
+            backgroundColor="#000000"
+            colors={LIGHTFALL_COLORS}
+            density={0.7}
+            dpr={dpr}
+          />
+        </Suspense>
       </div>
       
       <PillNav />
@@ -170,7 +173,9 @@ export default function HomePage() {
           >
             {/* Fondo Hacker/Matrix (LetterGlitch) para los certificados */}
             <div className="cert-background" style={{ zIndex: -1 }}>
-              <LetterGlitch glitchSpeed={60} centerVignette={true} glitchColors={['#38bdf8', '#0ea5e9', '#0284c7']} />
+              <Suspense fallback={null}>
+                <LetterGlitch glitchSpeed={60} centerVignette={true} glitchColors={['#38bdf8', '#0ea5e9', '#0284c7']} />
+              </Suspense>
               <div className="cert-background-overlay" style={{ background: 'rgba(3, 7, 18, 0.8)' }}></div>
             </div>
 

@@ -69,7 +69,9 @@ export const projects = [
         icon: "briefcase",
         logo: "/assets/icons/workas.png",
         images: [
-            "/assets/projects/WorkAss/workass_1.jpeg"
+            "/assets/projects/WorkAss/workass_1.jpeg",
+            "/assets/projects/WorkAss/workass_2.png",
+            "/assets/projects/WorkAss/workass_3.png"
         ]
     },
     { 

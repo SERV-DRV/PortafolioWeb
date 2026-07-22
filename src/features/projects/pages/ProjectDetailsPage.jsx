@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '../../../shared/data/portfolioData';
-import CardSwap, { Card } from '../../../shared/components/ui/CardSwap';
+import MediaCarousel from '../../../shared/components/ui/MediaCarousel';
 import Particles from '../../../shared/components/ui/Particles';
 import Lightfall from '../../../shared/components/ui/Lightfall';
 import LetterGlitch from '../../../shared/components/ui/LetterGlitch';
@@ -69,35 +69,12 @@ export default function ProjectDetailsPage() {
 
         <div className="details-layout">
           <div className="details-media-section">
-            {project.video ? (
-              <div className="details-video-wrapper">
-                <video 
-                  src={project.video} 
-                  autoPlay 
-                  loop 
-                  muted 
-                  controls 
-                  className="details-video"
-                />
-              </div>
-            ) : (
-              <div className="details-gallery-wrapper">
-                <CardSwap
-                  width={400}
-                  height={250}
-                  cardDistance={30}
-                  verticalDistance={35}
-                  pauseOnHover={true}
-                  delay={3000}
-                >
-                  {project.images.map((img, idx) => (
-                    <Card key={idx} className="details-swap-card">
-                      <img src={img} alt={`Captura ${idx + 1}`} />
-                    </Card>
-                  ))}
-                </CardSwap>
-              </div>
-            )}
+            <MediaCarousel 
+              media={[
+                ...(project.video ? [{ type: 'video', src: project.video }] : []),
+                ...(project.images ? project.images.map(img => ({ type: 'image', src: img })) : [])
+              ]} 
+            />
           </div>
 
           <div className="details-info-section">

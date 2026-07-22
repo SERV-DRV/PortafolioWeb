@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PillNav from '../../../shared/components/layout/PillNav';
@@ -88,7 +88,7 @@ export default function HomePage() {
             >
               <div className="image-geometry-crop">
                 <img 
-                  src="https://avatars.githubusercontent.com/u/129759868?v=4" 
+                  src="/assets/profile.png" 
                   alt={personalInfo.name} 
                   className="editorial-img"
                 />

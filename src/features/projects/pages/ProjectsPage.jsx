@@ -1,60 +1,22 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PillNav from '../../../shared/components/layout/PillNav';
-import CircularGallery from '../../../shared/components/ui/CircularGallery';
 import Particles from '../../../shared/components/ui/Particles';
+import SpotlightCard from '../../../shared/components/ui/SpotlightCard';
+import CardSwap, { Card } from '../../../shared/components/ui/CardSwap';
 import { projects } from '../../../shared/data/portfolioData';
+import { FaGithub, FaExternalLinkAlt, FaPlay } from 'react-icons/fa';
 import './ProjectsPage.css';
 
-const generateCoverImage = (title, index) => {
-  const canvas = document.createElement('canvas');
-  canvas.width = 800;
-  canvas.height = 800;
-  const ctx = canvas.getContext('2d');
-  
-  // Colores dinámicos basados en el índice
-  const hue = (index * 60) % 360;
-  const grad = ctx.createLinearGradient(0, 0, 800, 800);
-  grad.addColorStop(0, `hsl(${hue}, 80%, 20%)`);
-  grad.addColorStop(1, `hsl(${hue + 40}, 80%, 40%)`);
-  
-  ctx.fillStyle = grad;
-  ctx.fillRect(0, 0, 800, 800);
-  
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 80px sans-serif';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  
-  // Dividir título largo en líneas si es necesario
-  const words = title.split(' ');
-  if (words.length > 2) {
-    ctx.fillText(words.slice(0, 2).join(' '), 400, 350);
-    ctx.fillText(words.slice(2).join(' '), 400, 450);
-  } else {
-    ctx.fillText(title, 400, 400);
-  }
-  
-  return canvas.toDataURL('image/png');
-};
-
 export default function ProjectsPage() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const galleryItems = useMemo(() => projects.map((p, idx) => ({
-    image: generateCoverImage(p.name, idx),
-    text: p.name
-  })), []);
-  
-  const activeProject = projects[activeIndex];
+  const [activeProject, setActiveProject] = useState(null);
 
   return (
     <div className="page-container projects-immersive-page">
       <div className="background-layer">
         <Particles
-          particleColors={['#ffffff', '#ffffff']}
-          particleCount={200}
+          particleColors={['#38bdf8', '#0ea5e9']}
+          particleCount={150}
           particleSpread={10}
           speed={0.1}
           particleBaseSize={100}
@@ -66,76 +28,122 @@ export default function ProjectsPage() {
       
       <PillNav />
       
-      <div className="gallery-wrapper">
+      <div className="projects-content-wrapper">
         <h1 className="cinematic-title">Mis Proyectos</h1>
-        <div className="gallery-full-container">
-          <CircularGallery 
-            bend={3} 
-            textColor="#ffffff" 
-            borderRadius={0.05} 
-            items={galleryItems}
-            onActiveIndexChange={(idx) => {
-              if (idx !== activeIndex) setActiveIndex(idx);
-            }} 
-          />
-        </div>
-        
-        {/* Botón interactivo central */}
-        <div className="active-project-action">
-          <motion.button 
-            className="view-project-btn"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsModalOpen(true)}
-          >
-            Explorar: {activeProject?.name}
-          </motion.button>
+        <p className="page-subtitle text-slate-400 mb-12" style={{textAlign: 'center', maxWidth: '600px', margin: '0 auto 40px'}}>
+          Explora mi trabajo reciente. Haz clic en un proyecto para ver capturas, demos y más detalles.
+        </p>
+
+        <div className="projects-grid">
+          {projects.map((p) => (
+            <div key={p.id} onClick={() => setActiveProject(p)} className="project-card-wrapper">
+              <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(56, 189, 248, 0.15)">
+                <div className="card-image-preview">
+                  <img src={p.images[0]} alt={p.name} />
+                  <div className="card-overlay">
+                    <FaPlay className="play-icon" />
+                    <span>Explorar</span>
+                  </div>
+                </div>
+                <div className="card-info">
+                  <h3>{p.name}</h3>
+                  <span className="card-year">{p.year}</span>
+                  <p>{p.description}</p>
+                  <div className="card-tags">
+                    {p.technologies.slice(0, 3).map((tech, i) => (
+                      <span key={i} className="mini-tag">{tech}</span>
+                    ))}
+                    {p.technologies.length > 3 && <span className="mini-tag">+{p.technologies.length - 3}</span>}
+                  </div>
+                </div>
+              </SpotlightCard>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Modal de Detalles del Proyecto */}
+      {/* Modal Inmersivo de Detalles */}
       <AnimatePresence>
-        {isModalOpen && activeProject && (
+        {activeProject && (
           <motion.div 
-            className="project-modal-overlay"
+            className="rich-modal-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setIsModalOpen(false)}
+            onClick={() => setActiveProject(null)}
           >
             <motion.div 
-              className="project-modal-content glass-panel"
-              initial={{ y: 50, opacity: 0, scale: 0.9 }}
+              className="rich-modal-content glass-panel"
+              initial={{ y: 50, opacity: 0, scale: 0.95 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
-              exit={{ y: 20, opacity: 0, scale: 0.9 }}
+              exit={{ y: 20, opacity: 0, scale: 0.95 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <button className="close-modal-btn" onClick={() => setIsModalOpen(false)}>×</button>
+              <button className="rich-close-btn" onClick={() => setActiveProject(null)}>×</button>
               
-              <div className="modal-header">
-                <h2>{activeProject.name}</h2>
-                <span className="project-year">{activeProject.year}</span>
-              </div>
-              
-              <p className="modal-full-desc">{activeProject.fullDescription || activeProject.description}</p>
-              
-              <div className="modal-tech-stack">
-                {activeProject.technologies.map((tech, i) => (
-                  <span key={i} className="tech-badge">{tech}</span>
-                ))}
-              </div>
-              
-              <div className="modal-actions">
-                {activeProject.demoLink && (
-                  <a href={activeProject.demoLink} target="_blank" rel="noreferrer" className="primary-btn">
-                    Ver Demo en Vivo
-                  </a>
-                )}
-                {activeProject.link && (
-                  <a href={activeProject.link} target="_blank" rel="noreferrer" className="secondary-btn">
-                    Código en GitHub
-                  </a>
-                )}
+              <div className="rich-modal-layout">
+                {/* Lado Izquierdo: Multimedia (CardSwap / Video) */}
+                <div className="rich-modal-media">
+                  {activeProject.video ? (
+                    <div className="video-container">
+                      <video 
+                        src={activeProject.video} 
+                        autoPlay 
+                        loop 
+                        muted 
+                        controls 
+                        className="project-video"
+                      />
+                    </div>
+                  ) : (
+                    <div className="card-swap-wrapper">
+                      <CardSwap
+                        width={350}
+                        height={220}
+                        cardDistance={30}
+                        verticalDistance={40}
+                        pauseOnHover={true}
+                        delay={3000}
+                      >
+                        {activeProject.images.map((img, idx) => (
+                          <Card key={idx} className="swap-card-image">
+                            <img src={img} alt={`Captura ${idx + 1}`} style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px'}} />
+                          </Card>
+                        ))}
+                      </CardSwap>
+                    </div>
+                  )}
+                </div>
+
+                {/* Lado Derecho: Info y Enlaces */}
+                <div className="rich-modal-info">
+                  <div className="rich-modal-header">
+                    <h2>{activeProject.name}</h2>
+                    <span className="rich-year">{activeProject.year}</span>
+                  </div>
+                  
+                  <p className="rich-full-desc">{activeProject.fullDescription || activeProject.description}</p>
+                  
+                  <div className="rich-tech-stack">
+                    {activeProject.technologies.map((tech, i) => (
+                      <span key={i} className="rich-tag">{tech}</span>
+                    ))}
+                  </div>
+                  
+                  <div className="rich-actions">
+                    {activeProject.demoLink && (
+                      <a href={activeProject.demoLink} target="_blank" rel="noreferrer" className="btn-primary">
+                        <FaExternalLinkAlt style={{marginRight: '8px'}} /> Demo
+                      </a>
+                    )}
+                    {activeProject.link && (
+                      <a href={activeProject.link} target="_blank" rel="noreferrer" className="btn-secondary">
+                        <FaGithub style={{marginRight: '8px'}} /> Código
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>

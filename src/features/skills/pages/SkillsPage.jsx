@@ -5,7 +5,8 @@ import Particles from '../../../shared/components/ui/Particles';
 import { skills, softSkills } from '../../../shared/data/portfolioData';
 import { 
   FaCss3Alt, FaJava, FaJsSquare, FaGitAlt, FaDatabase, 
-  FaReact, FaHtml5, FaNodeJs, FaLeaf, FaEnvira, FaCode 
+  FaReact, FaHtml5, FaNodeJs, FaLeaf, FaEnvira, FaCode,
+  FaBrain, FaUsers, FaPuzzlePiece, FaSyncAlt, FaBookReader, FaComments
 } from 'react-icons/fa';
 import './SkillsPage.css';
 
@@ -23,6 +24,18 @@ const getIcon = (iconName, color, size = 40) => {
     case 'envira': return <FaEnvira size={size} color={color} />;
     case 'code': return <FaCode size={size} color={color} />;
     default: return <FaCode size={size} color={color} />;
+  }
+};
+
+const getSoftIcon = (iconName, color, size = 40) => {
+  switch(iconName) {
+    case 'brain': return <FaBrain size={size} color={color} />;
+    case 'users': return <FaUsers size={size} color={color} />;
+    case 'puzzle-piece': return <FaPuzzlePiece size={size} color={color} />;
+    case 'sync-alt': return <FaSyncAlt size={size} color={color} />;
+    case 'book-reader': return <FaBookReader size={size} color={color} />;
+    case 'comments': return <FaComments size={size} color={color} />;
+    default: return <FaBrain size={size} color={color} />;
   }
 };
 
@@ -173,15 +186,28 @@ export default function SkillsPage() {
           </div>
         </div>
         
-        {/* Soft Skills */}
-        <div className="soft-skills-dashboard panel mt-8">
-          <h2>Soft Skills</h2>
+        {/* Soft Skills Premium Dashboard */}
+        <div className="soft-skills-dashboard mt-12 w-full max-w-7xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="cinematic-title text-3xl">Habilidades Blandas</h2>
+            <p className="page-subtitle text-slate-400">Competencias interpersonales y cognitivas</p>
+          </div>
           <div className="soft-skills-grid">
             {softSkills.map((s, idx) => (
-              <div key={idx} className="soft-skill-item">
-                <h3>{s.name}</h3>
-                <p>{s.description}</p>
-              </div>
+              <motion.div 
+                key={idx} 
+                className="soft-skill-card glass-panel"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <div className="soft-skill-icon-wrapper">
+                  {getSoftIcon(s.icon, "#38bdf8", 40)}
+                </div>
+                <div className="soft-skill-content">
+                  <h3 className="soft-skill-title text-white">{s.name}</h3>
+                  <p className="text-slate-400 text-sm mt-2">{s.description}</p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>

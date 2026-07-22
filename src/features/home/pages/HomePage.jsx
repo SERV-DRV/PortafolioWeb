@@ -88,7 +88,7 @@ export default function HomePage() {
             >
               <div className="image-geometry-crop">
                 <img 
-                  src="/assets/profile.png" 
+                  src="/assets/me/me.jpg" 
                   alt={personalInfo.name} 
                   className="editorial-img"
                 />

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PillNav from '../../../shared/components/layout/PillNav';
 import MediaCarousel from '../../../shared/components/ui/MediaCarousel';
 
-const Lightfall = lazy(() => import('../../../shared/components/ui/Lightfall'));
+const Particles = lazy(() => import('../../../shared/components/ui/Particles'));
 const LetterGlitch = lazy(() => import('../../../shared/components/ui/LetterGlitch'));
 import { personalInfo } from '../../../shared/data/portfolioData';
 import { FaTimes } from 'react-icons/fa';
@@ -15,32 +15,22 @@ const certMedia = [
   { type: 'image', src: '/assets/certifications/manejoCaracters.png' }
 ];
 
-const LIGHTFALL_COLORS = ['#0284c7', '#38bdf8', '#7dd3fc'];
-
 export default function HomePage() {
   const [isCertModalOpen, setIsCertModalOpen] = useState(false);
-  const [dpr, setDpr] = useState(1);
-
-  React.useEffect(() => {
-    // Al usar el filtro blur en CSS, podemos bajar la resolución al mínimo
-    // para recuperar todo el rendimiento sin que se vean los píxeles.
-    if (window.innerWidth < 768) {
-      setDpr(0.3);
-    } else {
-      setDpr(0.7); 
-    }
-  }, []);
 
   return (
     <div className="home-container">
       <div className="fixed-background">
         <Suspense fallback={<div style={{ backgroundColor: '#000000', width: '100%', height: '100%' }}></div>}>
-          <Lightfall 
-            backgroundColor="#000000"
-            colors={LIGHTFALL_COLORS}
-            density={0.7}
-            dpr={dpr}
-            className="blurred-lightfall"
+          <Particles 
+            particleColors={['#38bdf8', '#0ea5e9', '#0284c7', '#ffffff']}
+            particleCount={window.innerWidth < 768 ? 150 : 350}
+            particleSpread={12}
+            speed={0.2}
+            particleBaseSize={120}
+            sizeRandomness={1.2}
+            moveParticlesOnHover={true}
+            pixelRatio={Math.min(window.devicePixelRatio || 1, 1.5)}
           />
         </Suspense>
       </div>

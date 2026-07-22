@@ -14,16 +14,29 @@ const certMedia = [
   { type: 'image', src: '/assets/certifications/manejoCaracters.png' }
 ];
 
+const LIGHTFALL_COLORS = ['#0284c7', '#38bdf8', '#7dd3fc'];
+
 export default function HomePage() {
   const [isCertModalOpen, setIsCertModalOpen] = useState(false);
+  const [dpr, setDpr] = useState(1);
+
+  React.useEffect(() => {
+    // Set a lower DPR on mobile to drastically improve performance
+    if (window.innerWidth < 768) {
+      setDpr(0.5);
+    } else {
+      setDpr(Math.min(window.devicePixelRatio || 1, 1.5)); 
+    }
+  }, []);
 
   return (
     <div className="home-container">
       <div className="fixed-background">
         <Lightfall 
           backgroundColor="#000000"
-          colors={['#0284c7', '#38bdf8', '#7dd3fc']}
+          colors={LIGHTFALL_COLORS}
           density={0.7}
+          dpr={dpr}
         />
       </div>
       

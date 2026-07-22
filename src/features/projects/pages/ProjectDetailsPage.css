@@ -251,7 +251,9 @@
   }
   
   .details-media-section {
-    height: 300px;
+    flex: none;
+    width: 100%;
+    height: 250px;
     min-height: 250px;
   }
   

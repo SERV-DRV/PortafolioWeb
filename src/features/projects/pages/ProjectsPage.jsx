@@ -46,6 +46,8 @@ export default function ProjectsPage() {
                 src={img} 
                 alt={`Captura ${i}`} 
                 className="folder-paper-img"
+                loading="lazy"
+                decoding="async"
                 onClick={(e) => {
                   e.stopPropagation(); // Evitar que el folder se cierre
                   navigate(`/projects/${p.id}`);

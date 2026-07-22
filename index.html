@@ -12,6 +12,23 @@
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
     </noscript>
+    <script>
+      (function(){
+        var p = window.location.pathname;
+        var m = {
+          '/projects/1': '/assets/projects/agenda/agenda_1.png',
+          '/projects/2': '/assets/projects/WorkAss/workass_1.jpeg',
+          '/projects/3': '/assets/projects/GestorRestaurante/gestor_1.jpeg',
+          '/projects/4': '/assets/projects/DeporteMania/deportemania_1.png',
+          '/projects/5': '/assets/projects/KinalFamiliar/kinal_1.jpeg'
+        };
+        if(m[p]){
+          var l = document.createElement('link');
+          l.rel = 'preload'; l.as = 'image'; l.href = m[p]; l.fetchPriority = 'high';
+          document.head.appendChild(l);
+        }
+      })();
+    </script>
     <title>Pserv</title>
   </head>
   <body>

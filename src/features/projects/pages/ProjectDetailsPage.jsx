@@ -3,8 +3,27 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '../../../shared/data/portfolioData';
 import CardSwap, { Card } from '../../../shared/components/ui/CardSwap';
+import Particles from '../../../shared/components/ui/Particles';
+import Lightfall from '../../../shared/components/ui/Lightfall';
+import LetterGlitch from '../../../shared/components/ui/LetterGlitch';
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa';
 import './ProjectDetailsPage.css';
+
+const getThematicBackground = (id) => {
+  switch (id) {
+    case 1:
+    case 5:
+      return <Particles particleColors={['#ffffff', '#38bdf8']} particleCount={150} speed={0.3} particleBaseSize={120} />;
+    case 2:
+    case 6:
+      return <Lightfall color="#38bdf8" speed={1.5} />;
+    case 3:
+    case 4:
+      return <LetterGlitch glitchSpeed={60} centerVignette={true} glitchColors={['#38bdf8', '#0ea5e9', '#0284c7']} />;
+    default:
+      return <Particles particleColors={['#38bdf8', '#0ea5e9']} particleCount={100} />;
+  }
+};
 
 export default function ProjectDetailsPage() {
   const { id } = useParams();
@@ -23,16 +42,11 @@ export default function ProjectDetailsPage() {
     );
   }
 
-  // Usar la primera imagen como fondo difuminado
-  const bgImage = project.images[0];
-
   return (
     <div className="project-details-page">
-      {/* Fondo inmersivo basado en la primera imagen del proyecto */}
-      <div 
-        className="details-background" 
-        style={{ backgroundImage: `url(${bgImage})` }}
-      >
+      {/* Fondo inmersivo temático */}
+      <div className="details-background">
+        {getThematicBackground(project.id)}
         <div className="details-background-overlay"></div>
       </div>
 
@@ -69,10 +83,10 @@ export default function ProjectDetailsPage() {
             ) : (
               <div className="details-gallery-wrapper">
                 <CardSwap
-                  width={500}
-                  height={320}
-                  cardDistance={35}
-                  verticalDistance={45}
+                  width={400}
+                  height={250}
+                  cardDistance={30}
+                  verticalDistance={35}
                   pauseOnHover={true}
                   delay={3000}
                 >

@@ -13,10 +13,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-size: cover;
-  background-position: center;
   z-index: 0;
-  filter: blur(25px) scale(1.1);
 }
 
 .details-background-overlay {
@@ -26,6 +23,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, rgba(3, 7, 18, 0.85) 0%, rgba(10, 20, 30, 0.95) 100%);
+  pointer-events: none;
 }
 
 .details-nav {
@@ -59,12 +57,12 @@
 .details-content-wrapper {
   position: relative;
   z-index: 10;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 120px auto 60px;
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
-  padding: 50px;
+  padding: 60px;
   box-shadow: 0 25px 50px rgba(0,0,0,0.5);
   backdrop-filter: blur(20px);
 }
@@ -72,7 +70,7 @@
 .details-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -83,6 +81,8 @@
   color: #38bdf8;
   margin: 0;
   letter-spacing: 2px;
+  line-height: 1.1;
+  text-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
 .details-year {
@@ -94,12 +94,13 @@
 .details-layout {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 60px;
 }
 
 @media (min-width: 900px) {
   .details-layout {
     flex-direction: row;
+    align-items: flex-start;
   }
 }
 
@@ -108,6 +109,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 450px;
+  width: 100%;
 }
 
 .details-video-wrapper {
@@ -124,13 +127,19 @@
 
 .details-gallery-wrapper {
   position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .details-swap-card {
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
   background: #000;
   border-radius: 12px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .details-swap-card img {
@@ -148,11 +157,11 @@
 .section-title {
   font-size: 1.5rem;
   color: #f8fafc;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .mt-4 {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .details-description {
@@ -166,7 +175,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .details-tech-badge {

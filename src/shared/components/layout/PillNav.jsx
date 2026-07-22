@@ -49,7 +49,7 @@ export default function PillNav() {
             <a href={personalInfo.links.github} target="_blank" rel="noreferrer" title="GitHub">
               <FaGithub size={20} />
             </a>
-            <a href={`mailto:${personalInfo.contact.email}`} title={personalInfo.contact.email}>
+            <a href={personalInfo.links.email} title="Email">
               <FaEnvelope size={20} />
             </a>
             <a href="#" title="LinkedIn" onClick={(e) => e.preventDefault()}>
@@ -94,8 +94,8 @@ export default function PillNav() {
           <a href={personalInfo.links.github} target="_blank" rel="noreferrer">
             <FaGithub size={24} /> GitHub
           </a>
-          <a href={`mailto:${personalInfo.contact.email}`}>
-            <FaEnvelope size={24} /> {personalInfo.contact.email}
+          <a href={personalInfo.links.email}>
+            <FaEnvelope size={24} /> Correo
           </a>
           <a href="#" onClick={(e) => e.preventDefault()}>
             <FaLinkedin size={24} /> LinkedIn

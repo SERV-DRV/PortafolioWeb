@@ -49,9 +49,9 @@ export default function ProjectDetailsPage() {
 
       <motion.div 
         className="details-content-wrapper glass-panel"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        initial={{ y: 30 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
       >
         <div className="details-header">
           <h1>{project.name}</h1>

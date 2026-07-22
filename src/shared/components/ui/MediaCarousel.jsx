@@ -22,7 +22,7 @@ export default function MediaCarousel({ media = [] }) {
   return (
     <div className="media-carousel-container">
       <div className="carousel-view">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={currentIndex}
             initial={{ opacity: 0, x: 50 }}

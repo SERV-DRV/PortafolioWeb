@@ -1,0 +1,11 @@
+# Portafolio de Santiago Enrique De Rosa Vásquez (SERV-DRV)
+
+Bienvenido al archivo de información para agentes de Inteligencia Artificial.
+
+## Acerca del sitio
+Este es el portafolio web personal de Santiago Enrique De Rosa Vásquez, donde exhibo mis proyectos, habilidades y experiencia como desarrollador Full Stack.
+
+## Enlaces útiles
+- [GitHub](https://github.com/SERV-DRV)
+- [LinkedIn](https://linkedin.com/in/santiago-enrique-de-rosa)
+- [Repositorio del Portafolio](https://github.com/SERV-DRV/PortafolioWeb)

@@ -58,7 +58,7 @@ export default function PillNav() {
           </div>
           
           <div className="nav-action">
-            <button className="mobile-menu-btn" onClick={() => setIsOpen(true)}>
+            <button className="mobile-menu-btn" aria-label="Abrir menú" onClick={() => setIsOpen(true)}>
               <Menu size={24} color="#fff" />
             </button>
           </div>
@@ -78,7 +78,7 @@ export default function PillNav() {
             <Terminal size={20} color="#38bdf8" />
             <span className="logo-text">Menú</span>
           </div>
-          <button className="close-btn" onClick={() => setIsOpen(false)}>
+          <button className="close-btn" aria-label="Cerrar menú" onClick={() => setIsOpen(false)}>
             <X size={24} color="#fff" />
           </button>
         </div>

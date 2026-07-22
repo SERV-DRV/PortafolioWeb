@@ -229,3 +229,34 @@
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-3px);
 }
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .details-nav {
+    top: 20px;
+    left: 20px;
+  }
+  
+  .details-content-wrapper {
+    margin: 80px 15px 40px 15px;
+    padding: 30px 20px;
+  }
+  
+  .details-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .details-layout {
+    gap: 40px;
+  }
+  
+  .details-media-section {
+    height: 300px;
+    min-height: 250px;
+  }
+  
+  .details-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

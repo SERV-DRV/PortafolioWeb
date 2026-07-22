@@ -3,27 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '../../../shared/data/portfolioData';
 import MediaCarousel from '../../../shared/components/ui/MediaCarousel';
-import Particles from '../../../shared/components/ui/Particles';
-import Lightfall from '../../../shared/components/ui/Lightfall';
 import LetterGlitch from '../../../shared/components/ui/LetterGlitch';
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa';
 import './ProjectDetailsPage.css';
-
-const getThematicBackground = (id) => {
-  switch (id) {
-    case 1:
-    case 5:
-      return <Particles particleColors={['#ffffff', '#38bdf8']} particleCount={150} speed={0.3} particleBaseSize={120} />;
-    case 2:
-    case 6:
-      return <Lightfall color="#38bdf8" speed={1.5} />;
-    case 3:
-    case 4:
-      return <LetterGlitch glitchSpeed={60} centerVignette={true} glitchColors={['#38bdf8', '#0ea5e9', '#0284c7']} />;
-    default:
-      return <Particles particleColors={['#38bdf8', '#0ea5e9']} particleCount={100} />;
-  }
-};
 
 export default function ProjectDetailsPage() {
   const { id } = useParams();
@@ -44,9 +26,9 @@ export default function ProjectDetailsPage() {
 
   return (
     <div className="project-details-page">
-      {/* Fondo inmersivo temático */}
+      {/* Fondo inmersivo temático (LetterGlitch para todos) */}
       <div className="details-background">
-        {getThematicBackground(project.id)}
+        <LetterGlitch glitchSpeed={60} centerVignette={true} glitchColors={['#38bdf8', '#0ea5e9', '#0284c7']} />
         <div className="details-background-overlay"></div>
       </div>
 

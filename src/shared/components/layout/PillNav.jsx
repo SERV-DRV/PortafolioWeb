@@ -1,6 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Terminal, Menu, X } from 'lucide-react';
+import { FaGithub, FaEnvelope, FaLinkedin } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
+import { personalInfo } from '../../../shared/data/portfolioData';
 import './PillNav.css';
 
 export default function PillNav() {
@@ -42,6 +44,18 @@ export default function PillNav() {
             <Link to="/skills">Habilidades</Link>
             <Link to="/#about" onClick={handleScrollToAbout}>Sobre Mí</Link>
           </div>
+
+          <div className="nav-socials">
+            <a href={personalInfo.links.github} target="_blank" rel="noreferrer" title="GitHub">
+              <FaGithub size={20} />
+            </a>
+            <a href={`mailto:${personalInfo.contact.email}`} title={personalInfo.contact.email}>
+              <FaEnvelope size={20} />
+            </a>
+            <a href="#" title="LinkedIn" onClick={(e) => e.preventDefault()}>
+              <FaLinkedin size={20} />
+            </a>
+          </div>
           
           <div className="nav-action">
             <button className="mobile-menu-btn" onClick={() => setIsOpen(true)}>
@@ -74,6 +88,18 @@ export default function PillNav() {
           <Link to="/projects" onClick={() => setIsOpen(false)}>Proyectos</Link>
           <Link to="/skills" onClick={() => setIsOpen(false)}>Habilidades</Link>
           <Link to="/#about" onClick={(e) => { handleScrollToAbout(e); setIsOpen(false); }}>Sobre Mí</Link>
+        </div>
+
+        <div className="drawer-socials">
+          <a href={personalInfo.links.github} target="_blank" rel="noreferrer">
+            <FaGithub size={24} /> GitHub
+          </a>
+          <a href={`mailto:${personalInfo.contact.email}`}>
+            <FaEnvelope size={24} /> {personalInfo.contact.email}
+          </a>
+          <a href="#" onClick={(e) => e.preventDefault()}>
+            <FaLinkedin size={24} /> LinkedIn
+          </a>
         </div>
       </div>
     </>

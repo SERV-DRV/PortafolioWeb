@@ -34,9 +34,8 @@ export default function MediaCarousel({ media = [] }) {
             {isVideo ? (
               <video 
                 src={currentMedia.src} 
-                controls 
-                autoPlay 
-                loop 
+                controls
+                preload="metadata"
                 className="carousel-media"
               />
             ) : (
@@ -44,6 +43,8 @@ export default function MediaCarousel({ media = [] }) {
                 src={currentMedia.src} 
                 alt={`Media ${currentIndex + 1}`} 
                 className="carousel-media"
+                loading="lazy"
+                decoding="async"
               />
             )}
           </motion.div>
@@ -52,19 +53,22 @@ export default function MediaCarousel({ media = [] }) {
 
       {media.length > 1 && (
         <>
-          <button className="carousel-nav-btn prev-btn" onClick={handlePrev}>
+          <button className="carousel-nav-btn prev-btn" onClick={handlePrev} aria-label="Anterior">
             <FaChevronLeft />
           </button>
-          <button className="carousel-nav-btn next-btn" onClick={handleNext}>
+          <button className="carousel-nav-btn next-btn" onClick={handleNext} aria-label="Siguiente">
             <FaChevronRight />
           </button>
           
-          <div className="carousel-dots">
+          <div className="carousel-dots" role="tablist">
             {media.map((_, idx) => (
               <button
                 key={idx}
                 className={`carousel-dot ${idx === currentIndex ? 'active' : ''}`}
                 onClick={() => setCurrentIndex(idx)}
+                aria-label={`Ir a la diapositiva ${idx + 1}`}
+                role="tab"
+                aria-selected={idx === currentIndex}
               />
             ))}
           </div>

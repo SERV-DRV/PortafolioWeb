@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '../../../shared/data/portfolioData';
 import MediaCarousel from '../../../shared/components/ui/MediaCarousel';
-import LetterGlitch from '../../../shared/components/ui/LetterGlitch';
+import Particles from '../../../shared/components/ui/Particles';
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa';
 import './ProjectDetailsPage.css';
 
@@ -28,7 +28,16 @@ export default function ProjectDetailsPage() {
     <div className="project-details-page">
       {/* Fondo inmersivo temático (LetterGlitch para todos) */}
       <div className="details-background">
-        <LetterGlitch glitchSpeed={60} centerVignette={true} glitchColors={['#38bdf8', '#0ea5e9', '#0284c7']} />
+        <Particles 
+          particleColors={['#38bdf8', '#0ea5e9', '#0284c7', '#ffffff']}
+          particleCount={window.innerWidth < 768 ? 100 : 250}
+          particleSpread={10}
+          speed={0.15}
+          particleBaseSize={100}
+          sizeRandomness={1}
+          moveParticlesOnHover={true}
+          pixelRatio={Math.min(window.devicePixelRatio || 1, 1.5)}
+        />
         <div className="details-background-overlay"></div>
       </div>
 
